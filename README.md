@@ -27,7 +27,7 @@ Se citește de la tastatură numărul de membrii din Rezistență.
 
 Fiecare obiect este inițializat pentru a ușura procesul de verificare al corectitudinii lui.
 
-Operatorii de citire funcționează, dar nu sunt testați explicit în codul sursă. În cazul utilizării lor, mesajele citite trebuie să nu conțină spații, cuvintele fiind despărțite prin "_". 
+Operatorii de citire funcționează, dar nu sunt testați explicit în codul sursă. În cazul utilizării lor pentru obiecte de tip _Decriptare_, mesajele citite trebuie să nu conțină spații, cuvintele fiind despărțite prin "_". 
 
 > Semnificație funcții:
 * _verificare_siguranta_ (clasa _Atacuri_) - verifică dacă atacul plănuit nu are loc la o oră nepotrivită pentru siguranța civililor sau dacă acesta nu are loc în raza capitalei.
