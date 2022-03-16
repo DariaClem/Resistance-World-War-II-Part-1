@@ -82,6 +82,12 @@ int Armament::get_nrmitraliere() {
     return this->nr_mitraliere;
 }
 
+bool Armament::verificare_cantitate(int nr_oameni) {
+    if (nr_mitraliere + nr_pusti + nr_pistoale >= nr_oameni)
+        return true;
+    return false;
+}
+
 Armament Armament::operator+=(int arm2) {
     this->nr_pusti = nr_pusti + arm2;
     this->nr_mitraliere = nr_mitraliere + arm2;
@@ -108,6 +114,16 @@ Armament Armament::operator-(Armament arm2) {
     this->nr_pistoale -= arm2.nr_pistoale;
     this->nr_mitraliere -= arm2.nr_mitraliere;
     return *this;
+}
+
+istream &operator>>(istream &stream, Armament &armament) {
+    stream >> armament.nr_pistoale >> armament.nr_pusti >> armament.nr_mitraliere;
+    return stream;
+}
+
+ostream &operator<<(ostream &stream, Armament &armament) {
+    stream << armament.nr_pistoale << " " << armament.nr_mitraliere << " " << armament.nr_pusti << "\n";
+    return stream;
 }
 
 /* Clasa Munitie inregistreaza numarul de gloante pentru fiecare arma in parte. Se poate verifica daca numarul acestora
@@ -150,6 +166,20 @@ private:
     int gloante_pistoale, gloante_mitraliere, gloante_pusti;
 };
 
+Munitie::Munitie() {}
+
+Munitie::Munitie(int gl_pistoale, int gl_pusti, int gl_mitraliere) {
+    this->gloante_pistoale = gl_pistoale;
+    this->gloante_mitraliere = gl_mitraliere;
+    this->gloante_pusti = gl_pusti;
+}
+
+Munitie::Munitie(const Munitie &munitie) {
+    this->gloante_pistoale = munitie.gloante_pistoale;
+    this->gloante_pusti = munitie.gloante_pusti;
+    this->gloante_mitraliere = munitie.gloante_mitraliere;
+}
+
 void Munitie::set_gloantepistoale(int cant) {
     gloante_pistoale = cant;
 }
@@ -172,6 +202,13 @@ int Munitie::get_gloantemitraliere() {
 
 int Munitie::get_gloantepusti() {
     return gloante_pusti;
+}
+
+bool Munitie::verificare_munitie(Armament armament) {
+    if (gloante_pistoale < 12 * armament.nr_pistoale) return false;
+    if (gloante_pusti < 30 * armament.nr_pusti) return false;
+    if (gloante_mitraliere < 30 * armament.nr_mitraliere) return false;
+    return true;
 }
 
 Munitie Munitie::operator-=(int mun2) {
@@ -200,43 +237,6 @@ Munitie Munitie::operator+=(int mun2) {
     this->gloante_mitraliere += mun2;
     this->gloante_pistoale += mun2;
     return *this;
-}
-
-bool Armament::verificare_cantitate(int nr_oameni) {
-    if (nr_mitraliere + nr_pusti + nr_pistoale >= nr_oameni)
-        return true;
-    return false;
-}
-
-Munitie::Munitie() {}
-
-Munitie::Munitie(int gl_pistoale, int gl_pusti, int gl_mitraliere) {
-    this->gloante_pistoale = gl_pistoale;
-    this->gloante_mitraliere = gl_mitraliere;
-    this->gloante_pusti = gl_pusti;
-}
-
-Munitie::Munitie(const Munitie &munitie) {
-    this->gloante_pistoale = munitie.gloante_pistoale;
-    this->gloante_pusti = munitie.gloante_pusti;
-    this->gloante_mitraliere = munitie.gloante_mitraliere;
-}
-
-bool Munitie::verificare_munitie(Armament armament) {
-    if (gloante_pistoale < 12 * armament.nr_pistoale) return false;
-    if (gloante_pusti < 30 * armament.nr_pusti) return false;
-    if (gloante_mitraliere < 30 * armament.nr_mitraliere) return false;
-    return true;
-}
-
-istream &operator>>(istream &stream, Armament &armament) {
-    stream >> armament.nr_pistoale >> armament.nr_pusti >> armament.nr_mitraliere;
-    return stream;
-}
-
-ostream &operator<<(ostream &stream, Armament &armament) {
-    stream << armament.nr_pistoale << " " << armament.nr_mitraliere << " " << armament.nr_pusti << "\n";
-    return stream;
 }
 
 istream &operator>>(istream &stream, Munitie &munitie) {
@@ -699,7 +699,8 @@ istream &operator>>(istream &citire, Atacuri &atacuri) {
 ostream &operator<<(ostream &afisare, Atacuri &atacuri) {
     afisare << "Atacul va avea loc la \nOra: " << atacuri.ora << ":00\nZiua: " << atacuri.zi << "\nLuna: "
             << atacuri.luna
-            << "\nAnul: " << atacuri.an << "\nZona de coordonate: " << atacuri.zona << "Atacul are loc la " << atacuri.km_de_capitala
+            << "\nAnul: " << atacuri.an << "\nZona de coordonate: " << atacuri.zona << "Atacul are loc la "
+            << atacuri.km_de_capitala
             << "km de Paris.\n";
     return afisare;
 }
@@ -796,7 +797,7 @@ int main() {
                     arm1 -= atoi(p);
                     mun1 -= atoi(p);
                     cout << "Infrangere\n";
-                    cout << "Stocurile actualizate sunt: " << arm1 << arm2;
+                    cout << "Stocurile actualizate sunt:\n" << arm1 << mun1;
                     if (arm1.verificare_cantitate(nr_oameni)) {
                         if (mun1.verificare_munitie(arm1))
                             cout << "Arme si munitie suficiente.\n";
