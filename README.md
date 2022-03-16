@@ -1,9 +1,9 @@
 # Proiect1_POO
 
 ## Poveste 
-În timpul celui de-al doilea război mondial, în Franța ocupată de trupele germane, francezi de toate vârstele s-au unit pentru a slăbi forțele inamicului, atât prin sabotaj, cât și prin operațiuni militare.
+În timpul celui de-al Doilea Război Mondial, în Franța ocupată de trupele germane, francezi de toate vârstele s-au unit pentru a slăbi forțele inamicului, atât prin sabotaj, cât și prin operațiuni militare.
 
-Înainte de asedierea Parisului ai studiat criptologia și consideri că ai putea ajuta Rezistența printr-o muncă ascunsă de ochii lumii, dar crucială. Pe un dispozitiv obținut de pe Piața Neagră vrei să centralizezi informațiile despre colegi, atacuri, armament, muniție, coordonatele mesajelor sau a viitoarelor confruntări, dar vrei, de asemenea, să poți verifica autenticitatea unor mesaje primite: sunt mesaje capcane sau sunt sunt trimise de oamenii voștri? 
+Înainte de asedierea Parisului ai studiat criptologia și consideri că ai putea ajuta Rezistența printr-o muncă ascunsă de ochii lumii, dar crucială. Pe un dispozitiv obținut de pe Piața Neagră vrei să centralizezi informațiile despre colegi, atacuri, armament, muniție, coordonatele mesajelor sau a viitoarelor confruntări, dar vrei, de asemenea, să poți verifica autenticitatea unor mesaje primite: sunt mesaje capcane sau sunt trimise de oamenii voștri? 
     
 > Jurnal de război
 ***15 martie 1942***
@@ -27,7 +27,7 @@ Se citește de la tastatură numărul de membrii din Rezistență.
 
 Fiecare obiect este inițializat pentru a ușura procesul de verificare al corectitudinii lui.
 
-Operatorii de citire și afișare funcționează, dar nu sunt testați explicit în codul sursă. În cazul utilizării lor, mesajele citite trebuie să nu conțină spații, cuvintele fiind despărțite prin "_". 
+Operatorii de citire funcționează, dar nu sunt testați explicit în codul sursă. În cazul utilizării lor, mesajele citite trebuie să nu conțină spații, cuvintele fiind despărțite prin "_". 
 
 > Semnificație funcții:
 * _verificare_siguranta_ (clasa _Atacuri_) - verifică dacă atacul plănuit nu are loc la o oră nepotrivită pentru siguranța civililor sau dacă acesta nu are loc în raza capitalei.
