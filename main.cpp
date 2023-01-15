@@ -2,8 +2,8 @@
 
 using namespace std;
 
-/* Clasa Armament inregistreaza date despre numarul de pistoale, mitraliere si pusti din dotarea rezistentei. Se poate
- * verifica daca numarul acestora este suficient pentru toti oamenii. */
+/* Armament class records data on the number of pistols, machine guns and rifles in the equipment of the resistance. May
+ * check if their number is sufficient for all people. */
 class Armament {
 public:
     Armament();
@@ -126,8 +126,8 @@ ostream &operator<<(ostream &stream, Armament &armament) {
     return stream;
 }
 
-/* Clasa Munitie inregistreaza numarul de gloante pentru fiecare arma in parte. Se poate verifica daca numarul acestora
- * este suficient pentru a incarca un incarcator. */
+/* The Ammunition Class records the number of bullets for each individual weapon. It can be checked if their number
+ * is enough to charge a charger. */
 class Munitie {
 public:
     Munitie();
@@ -566,9 +566,9 @@ istream &operator>>(istream &citire, Decriptare &decriptare) {
 
 ostream &operator<<(ostream &afisare, Decriptare &decriptare) {
     afisare << "ID_mesager: " << decriptare.ID_mesager;
-    afisare << "Mesaj: " << decriptare.mesaj;
-    afisare << "\nCheie: " << decriptare.cheie;
-    afisare << "\nCoordonate: " << decriptare.coordonate_mesaj << "\n";
+    afisare << "Message: " << decriptare.mesaj;
+    afisare << "\nKey: " << decriptare.cheie;
+    afisare << "\nCoordinates: " << decriptare.coordonate_mesaj << "\n";
     return afisare;
 }
 
@@ -697,17 +697,17 @@ istream &operator>>(istream &citire, Atacuri &atacuri) {
 }
 
 ostream &operator<<(ostream &afisare, Atacuri &atacuri) {
-    afisare << "Atacul va avea loc la \nOra: " << atacuri.ora << ":00\nZiua: " << atacuri.zi << "\nLuna: "
+    afisare << "The attack will take place at \nTime: " << atacuri.ora << ":00\nDay: " << atacuri.zi << "\nMonth: "
             << atacuri.luna
-            << "\nAnul: " << atacuri.an << "\nZona de coordonate: " << atacuri.zona << "Atacul are loc la "
+            << "\nYear: " << atacuri.an << "\nCoordinate are: " << atacuri.zona << "The attack takes place at "
             << atacuri.km_de_capitala
-            << "km de Paris.\n";
+            << "km from Paris.\n";
     return afisare;
 }
 
 int main() {
     int nr_oameni;
-    cout << "Numarul de oameni din Rezistenta:";
+    cout << "The number of people in the Resistance:";
     cin >> nr_oameni;
 
     Armament arm1(10, 10, 10);
@@ -753,13 +753,13 @@ int main() {
                 int nr;
                 nr = stoi(mesaj.get_mesaj());
                 arm1 += nr;
-                cout << "Nr arme: " << arm1;
+                cout << "Number of weapons: " << arm1;
             }
             if (membru.get_misiune() == "gestionar_munitie") {
                 int nr;
                 nr = stoi(mesaj.get_mesaj());
                 mun1 += nr;
-                cout << "Nr munitie: " << mun1;
+                cout << "Number of ammo: " << mun1;
             }
             if (membru.get_misiune() == "spion") {
                 char valori[1001], *p;
@@ -776,38 +776,38 @@ int main() {
                 atac1.set_km(atoi(p));
                 atac1.set_zona(coord3);
                 if (atac1.verificare_siguranta(atac1.get_ora(), atac1.get_km()))
-                    cout << "Atacul poate avea loc.\n";
+                    cout << "The attack can take place.\n";
                 else
-                    cout << "Atacul nu poate avea loc.\n";
+                    cout << "The attack cannot take place.\n";
             }
             if (membru.get_misiune() == "militar") {
                 char valori[1001], *p;
                 strcpy(valori, (mesaj.get_mesaj()).c_str());
                 p = strtok(valori, "_");
                 if (atoi(p) == 1) {
-                    //victorie -> primeste arme
+                    // victory -> get weapons
                     p = strtok(NULL, "_");
-                    cout << "Victorie\n";
+                    cout << "Victory\n";
                     arm1 = arm1 + arm2;
                     mun1 = mun1 + mun2;
                     cout << arm1 << arm2;
                 } else {
-                    //infrangere -> cedeaza arme
+                    // defeat -> give up arms
                     p = strtok(NULL, "_");
                     arm1 -= atoi(p);
                     mun1 -= atoi(p);
-                    cout << "Infrangere\n";
-                    cout << "Stocurile actualizate sunt:\n" << arm1 << mun1;
+                    cout << "Defeat\n";
+                    cout << "The updated stocks are:\n" << arm1 << mun1;
                     if (arm1.verificare_cantitate(nr_oameni)) {
                         if (mun1.verificare_munitie(arm1))
-                            cout << "Arme si munitie suficiente.\n";
+                            cout << "Sufficient weapons and ammunition.\n";
                         else
-                            cout << "Arme suficiente, dar munitie insuficienta.\n";
+                            cout << "Sufficient weapons, but insufficient ammunition.\n";
                     } else {
                         if (mun1.verificare_munitie(arm1))
-                            cout << "Arme insuficiente, dar munitie suficienta.\n";
+                            cout << "Not enough weapons, but enough ammunition.\n";
                         else
-                            cout << "Arme si munitie insuficiente.\n";
+                            cout << "Insufficient weapons and ammunition.\n";
                     }
 
                 }
@@ -838,7 +838,7 @@ int main() {
                 cout << atac2;
             }
         } else
-            cout << "Mesajul primit este o capcana!\n";
+            cout << "The received message is a trap!\n";
         if (index == 1) {
             mesaj = mesaj2;
             membru = mesaj.get_id();
