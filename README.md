@@ -1,5 +1,5 @@
 ### Object-oriented programming 🖥️
-# Resistance coordination in the World War II
+# Resistance coordination in the World War II - Part 1
 
 [Română :romania:](#poveste)
 
