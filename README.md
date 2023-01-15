@@ -1,4 +1,45 @@
-# Proiect1_POO
+### Object-oriented programming 🖥️
+# Resistance coordination in the World War II
+
+## Story 
+During World War II, in France occupied by German troops, French people of all ages united to weaken the enemy's forces, both through sabotage and military operations.
+
+Before the siege of Paris, you studied cryptology and believe that you could help the Resistance with a job hidden from the world's eyes, but crucial. On a device obtained from the Black Market, you want to centralize information about colleagues, attacks, weapons, ammunition, the coordinates of messages or future confrontations, but you also want to be able to check the authenticity of some received messages: are they trap messages or are they sent by your people?
+
+> War diary
+***March 15, 1942***
+
+On this day you receive from a trusted colleague a package with several envelopes in it. Each one theoretically represents messages received from members of the Resistance. Your duty is to check each message individually by passing it through several filters:
+
+* Check every message that it is from a safe source, as it may be sent by the enemy to lure you into a trap.
+* Decrypt messages using the given key.
+* Depending on the job of the messenger, you treat the content of the message differently:
+  * gestionar_arme (weapons manager): you are specified the number of weapons you receive in stock
+  * gestionar_muniție (ammunition manager): you are specified the number of cartridges you receive in stock
+  * spion (spy): you are given the coordinates of a future attack
+  * militar (soldier): you are given data about an enemy encounter:
+    * if it's defeat, you're given weapon and ammo losses
+    * if it is victory, you know that stocks of weapons and ammunition are supplemented by a previously known stock seized from the enemy
+  * strateg (strategist): you are given the coordinates of an attack set for early next year in Paris
+
+> Technical data
+
+The input is the number of people from the Resistance.
+
+Each object is initialized to ease the process of checking its correctness.
+
+The input operators work, but are not explicitly tested in the source code. When using them for objects of type _Decryption_ and _People_, the input must not contain spaces, words being separated by "_".
+
+> Function meaning:
+* _verificare_siguranta_ (_Atacuri_ class) - verify that the planned attack does not take place at an inappropriate time for the safety of civilians or that it does not take place within the radius of the capital.
+* _verificare_autenticitate_ (_Decriptare_ class) - verify that the received message is genuine. The message is authentic if 2 relationships between the person's id and the decryption key are true, but also if the sum of the coordinates received is odd.
+* _decriptare_mesaj_ (_Decriptare_ class) - decrypts the received message with the given key by applying the xor operator between each letter of the message and the key.
+* _coord_atac_ (_coordonate_ class) - modifies some coordinates with a given value.
+* _determinare_coordonate_ (_coordonate_ class) - determines a set of coordinates by a given decimal value.
+* _verificare_cantitate_ (_Armament_ class) - check if there are enough weapons for the number of people.
+* _verificare_munitie_ (_Munitie_ class) - check if there are enough cartridges for the number of guns.
+
+
 
 ## Poveste 
 În timpul celui de-al Doilea Război Mondial, în Franța ocupată de trupele germane, francezi de toate vârstele s-au unit pentru a slăbi forțele inamicului, atât prin sabotaj, cât și prin operațiuni militare.
