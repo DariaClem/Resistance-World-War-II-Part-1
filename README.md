@@ -25,8 +25,7 @@ On this day you receive from a trusted colleague a package with several envelope
     * if it's defeat, you're given weapon and ammo losses
     * if it is victory, you know that stocks of weapons and ammunition are supplemented by a previously known stock seized from the enemy
   * strateg (strategist): you are given the coordinates of an attack set for early next year in Paris
-
-> Technical data
+### Technical data
 
 The input is the number of people from the Resistance.
 
@@ -34,7 +33,7 @@ Each object is initialized to ease the process of checking its correctness.
 
 The input operators work, but are not explicitly tested in the source code. When using them for objects of type _Decryption_ and _People_, the input must not contain spaces, words being separated by "_".
 
-> Function meaning:
+### Function meaning:
 * _verificare_siguranta_ (_Atacuri_ class) - verify that the planned attack does not take place at an inappropriate time for the safety of civilians or that it does not take place within the radius of the capital.
 * _verificare_autenticitate_ (_Decriptare_ class) - verify that the received message is genuine. The message is authentic if 2 relationships between the person's id and the decryption key are true, but also if the sum of the coordinates received is odd.
 * _decriptare_mesaj_ (_Decriptare_ class) - decrypts the received message with the given key by applying the xor operator between each letter of the message and the key.
@@ -66,7 +65,7 @@ The input operators work, but are not explicitly tested in the source code. When
     * dacă este victorie, știi că stocurile de arme și muniție se suplimentează cu un stoc confiscat de la inamic, cunoscut anterior
   * strateg: ți se precizează coordonatele unui atac stabilit pentru începutul anului următor în Paris
 
-> Date tehnice
+### Date tehnice
 
 Se citește de la tastatură numărul de membrii din Rezistență. 
 
@@ -74,7 +73,7 @@ Fiecare obiect este inițializat pentru a ușura procesul de verificare al corec
 
 Operatorii de citire funcționează, dar nu sunt testați explicit în codul sursă. În cazul utilizării lor pentru obiecte de tip _Decriptare_ și _Oameni_, mesajele citite trebuie să nu conțină spații, cuvintele fiind despărțite prin "_". 
 
-> Semnificație funcții:
+### Semnificație funcții:
 * _verificare_siguranta_ (clasa _Atacuri_) - verifică dacă atacul plănuit nu are loc la o oră nepotrivită pentru siguranța civililor sau dacă acesta nu are loc în raza capitalei.
 * _verificare_autenticitate_ (clasa _Decriptare_) - verifică dacă mesajul primit este autentic. Mesajul este autentic dacă sunt adevărate 2 relații între id-ul persoanei și cheia de decriptare, dar și dacă suma coordonatelor primite este impară.
 * _decriptare_mesaj_ (clasa _Decriptare_) - decriptează mesajul primit cu cheia dată prin aplicarea operatorului xor între fiecare literă a mesajului și cheie. 
