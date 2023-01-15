@@ -1,7 +1,11 @@
 ### Object-oriented programming 🖥️
 # Resistance coordination in the World War II
 
-## Story 
+[Română :romania:](#poveste)
+
+[English :eu:](#story)
+
+## Story
 During World War II, in France occupied by German troops, French people of all ages united to weaken the enemy's forces, both through sabotage and military operations.
 
 Before the siege of Paris, you studied cryptology and believe that you could help the Resistance with a job hidden from the world's eyes, but crucial. On a device obtained from the Black Market, you want to centralize information about colleagues, attacks, weapons, ammunition, the coordinates of messages or future confrontations, but you also want to be able to check the authenticity of some received messages: are they trap messages or are they sent by your people?
